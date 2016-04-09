@@ -3,6 +3,11 @@ module MillerRabin where
 import System.Random
 import System.IO.Unsafe
 
+{- use isPrime to test if a number is prime.
+ - note that this is a probablistic test.
+ - it returns True when the argument is very probably prime
+ -}
+
 isPrime :: Integer -> Bool
 isPrime n = unsafePerformIO (isMillerRabinPrime 100 n)
 

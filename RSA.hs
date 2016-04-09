@@ -3,6 +3,13 @@ module RSA where
 
 import Math
 
+{- use generateRSA to create a key pair.
+ - use encrypt and decrypt on (shortish) string messages.
+ - use sign and verify to sign messages and verify messages that include a sig.
+ - use crackKey and crackKey' to get the private key from a public key.
+ - use crackText to do a very naive chosen-plaintext attack on some ciphertext
+ -}
+
 data RSA =
   RSA {
     p :: Z,

@@ -10,6 +10,11 @@ import Control.Spoon
 import Data.Maybe
 import Data.Function
 
+{-
+load DH params with loadDH
+use dhDialog to actually do an exchange
+-}
+
 -- the distillation of the two step process
 simpleDH1 :: Z -> Z -> Z -> Z
 simpleDH1 p g a = powm g a p
@@ -67,6 +72,7 @@ dhDialog dh = do
 
 
 -- a classical method of keeping track of the DH parameters
+-- (everything below this point is joking)
 data DHClass = DHClass
   { dhP :: Z
   , dhG :: Z

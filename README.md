@@ -14,6 +14,7 @@ required.
 ## RSA
 
 Very basic RSA, no padding. Also includes signing and signature verification.
+Includes two trivial ways to crack a key pair given the public key.
 
 ## Diffie Hellman Merkel
 
@@ -23,7 +24,8 @@ Very basic DH exchange.
 
 Powers mod n, euclidian algorithm, modular inverse, and Miller Rabin prime
 test all copy pasted. Uses the arithmoi Haskell library for factorization and
-totient, which is not used in any actual crypto.
+totient, which is not used in any actual crypto. Special thanks to lpsmith
+in #haskell-blah for the chinese remainder theorem code.
 
 ## Driver program
 
