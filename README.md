@@ -30,9 +30,9 @@ in #haskell-blah for the chinese remainder theorem code.
 ## Driver program
 
 ```
-Homebrew -g 2048  # generate huge prime and save to disk for diffie hellman
-Homebrew -p 12345 # wait for connection
-Homebrew localhost 12345 # initiate connection
+./Homebrew -g 2048  # generate huge prime and save to disk for diffie hellman
+./Homebrew -p 12345 # wait for connection
+./Homebrew localhost 12345 # initiate connection
 ```
 
 The driver program establishes a two way encrypted channel by doing a DH
@@ -42,3 +42,13 @@ communications.
 
 Disclaimer: Even if you know what you're doing, it's probably a liability to
 use this code for anything serious! Demonstration-grade only.
+
+## Eavesdropper program
+
+```
+./MITM localhost 12345 -p 54321
+```
+
+Uses the async library to seamlessly mediate alice and bob's conversation
+until their handshake can be reversed and their communications decrypted,
+all without them knowing.
