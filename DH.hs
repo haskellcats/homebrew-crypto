@@ -107,3 +107,17 @@ newClassicDH size = do
     let complete bob = this { dhS = powm bob (dhA this) (dhP this), dhComplete = undefined }
     DHClass p g undefined undefined begin complete
 
+-- given p and g, and a public parts A B of the secret, get the secret
+-- solve g^a = A mod p for a
+-- solve g^b = B mod p for b
+-- return g^ab
+crackDH :: DH Ready -> Z -> Z -> Z
+crackDH (DHReady _ p g) dhA dhB =
+  let a = discreteLog g dhA p in
+  let b = discreteLog g dhB p in
+  powm (powm g a p) b p
+
+-- solve b^e = x mod n for e
+discreteLog :: Z -> Z -> Z -> Z
+discreteLog b x n = f 0 where
+  f e = if powm b e n == x then e else f (e+1)
