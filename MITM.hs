@@ -49,8 +49,8 @@ main = do
   t2 <- async (tap bob bobChan)
   -- until cracking succeeds show the encrypted streams in real time
   t3 <- async $ do
-    withAsync (forever $ Alice <$> readChan aliceSideChan >>= writeChan sideChan) $ \a1 -> do
-    withAsync (forever $ Bob <$> readChan bobSideChan >>= writeChan sideChan) $ \a2 -> do
+    withAsync (forever $ Alice <$> readChan aliceSideChan >>= writeChan sideChan) $ \_ -> do
+    withAsync (forever $ Bob <$> readChan bobSideChan >>= writeChan sideChan) $ \_ -> do
       forever $ do
         x <- readChan sideChan
         print x
