@@ -13,6 +13,8 @@ import qualified Crypto.Hash.SHA512 as SHA512
 import qualified Data.Text as T
 import Data.Text.Encoding (encodeUtf8, decodeUtf8)
 import qualified Data.ByteString.Base16 as Hex
+import Control.Concurrent (yield)
+import System.IO.Unsafe
 
 type Z = Integer
 
@@ -95,3 +97,8 @@ hash =
 
 sha512 :: String -> BS.ByteString
 sha512 = SHA512.hash . encodeUtf8 . T.pack
+
+-- solve b^e = x mod n for e
+discreteLog :: Z -> Z -> Z -> Z
+discreteLog b x n = f 0 where
+  f e = if powm b e n == x then e else f (e+1)
