@@ -18,7 +18,7 @@ required.
 Very basic RSA, no padding. Also includes signing and signature verification.
 Includes two trivial ways to crack a key pair given the public key.
 
-## Diffie Hellman Merkel
+## Diffie Hellman Merkle
 
 Very basic DH exchange.
 
