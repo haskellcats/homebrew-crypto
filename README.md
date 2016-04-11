@@ -1,3 +1,5 @@
+![alt text][logo]
+
 # Homebrew Crypto
 
 "The simplest possible thing that will work."
@@ -52,3 +54,5 @@ use this code for anything serious! Demonstration-grade only.
 Uses the async library to seamlessly mediate alice and bob's conversation
 until their handshake can be reversed and their communications decrypted,
 all without them knowing.
+
+[logo]: https://raw.githubusercontent.com/haskellcats/homebrew-crypto/master/cryptosystem.png "Cryptosystem Diagram"
